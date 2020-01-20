@@ -14,7 +14,7 @@ vconfig add eth2 200
 brctl addbr VLAN200
 brctl addif VLAN200 eth0.200
 brctl addif VLAN200 eth1.200
-brctl addif VLAN200 eth2.200
+brctl addif VLAN200 eth2
 
 brctl addbr VLAN100
 brctl addif VLAN100 eth0.100
