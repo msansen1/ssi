@@ -1,0 +1,19 @@
+
+ifconfig eth0 up
+ifconfig eth1 up
+ifconfig eth2 up
+vconfig add eth0 100
+vconfig add eth0 200
+
+ifconfig eth0.100 up
+ifconfig eth0.200 up
+
+brctl addbr V100
+brctl addbr V200
+brctl addif V100 eth0.100
+brctl addif V100 eth1
+brctl addif V200 eth0.200
+brctl addif V200 eth2
+
+ifconfig V100 up
+ifconfig V200 up

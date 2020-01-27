@@ -1,0 +1,43 @@
+modprobe 8021q
+ifconfig eth0 up
+vconfig add eth0 100
+vconfig add eth0 200
+
+ifconfig eth1 up
+vconfig add eth1 100
+vconfig add eth1 200
+
+ifconfig eth2 up
+vconfig add eth2 100
+vconfig add eth2 200
+
+brctl addbr VLAN100
+brctl addif VLAN100 eth0.100
+brctl addif VLAN100 eth1.100
+brctl addif VLAN100 eth2.100
+
+
+brctl addbr VLAN200
+brctl addif VLAN200 eth0.200
+brctl addif VLAN200 eth1.200
+brctl addif VLAN200 eth2.200
+
+ifconfig eth0 up
+ifconfig eth0.100 up
+ifconfig eth0.200 up
+
+
+ifconfig eth1 up
+ifconfig eth1.100 up
+ifconfig eth1.200 up
+
+
+ifconfig eth2 up
+ifconfig eth2.100 up
+ifconfig eth2.200 up
+
+ifconfig VLAN100 up
+ifconfig VLAN200 up
+
+brctl stp VLAN100 yes
+brctl stp VLAN200 yes
